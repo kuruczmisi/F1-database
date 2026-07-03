@@ -1,6 +1,7 @@
 package org.example.f1database.controller;
 
-import org.example.f1database.entity.Team;
+import org.example.f1database.dto.TeamRequestDto;
+import org.example.f1database.dto.TeamResponseDto;
 import org.example.f1database.service.TeamService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,23 +18,24 @@ public class TeamController {
     }
 
     @GetMapping
-    public List<Team> getAllTeams() {
+    public List<TeamResponseDto> getAllTeams() {
         return teamService.getAllTeams();
     }
 
     @GetMapping("/{id}")
-    public Team getTeamById(@PathVariable Long id) {
+    public TeamResponseDto getTeamById(@PathVariable Long id) {
         return teamService.getTeamById(id);
     }
 
     @PostMapping
-    public Team createTeam(@RequestBody Team team) {
-        return teamService.createTeam(team);
+    public TeamResponseDto createTeam(@RequestBody TeamRequestDto dto) {
+        return teamService.createTeam(dto);
     }
 
     @PutMapping("/{id}")
-    public Team updateTeam(@PathVariable Long id, @RequestBody Team team) {
-        return teamService.updateTeam(id, team);
+    public TeamResponseDto updateTeam(@PathVariable Long id,
+                                      @RequestBody TeamRequestDto dto) {
+        return teamService.updateTeam(id, dto);
     }
 
     @DeleteMapping("/{id}")
