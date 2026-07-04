@@ -30,10 +30,16 @@ public class RaceService {
 
     public RaceResponseDto getRaceById(Long id) {
         Race race = raceRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Race not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Race not found with id: " + id));
 
         return raceMapper.toDto(race);
+    }
+
+    public List<RaceResponseDto> getRacesByYear(int year) {
+        return raceRepository.findByYear(year)
+                .stream()
+                .map(raceMapper::toDto)
+                .toList();
     }
 
     public RaceResponseDto createRace(RaceRequestDto dto) {
@@ -45,8 +51,7 @@ public class RaceService {
 
     public RaceResponseDto updateRace(Long id, RaceRequestDto dto) {
         Race existingRace = raceRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Race not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Race not found with id: " + id));
 
         existingRace.setName(dto.getName());
         existingRace.setLocation(dto.getLocation());
@@ -59,8 +64,7 @@ public class RaceService {
 
     public void deleteRace(Long id) {
         Race existingRace = raceRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Race not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Race not found with id: " + id));
 
         raceRepository.delete(existingRace);
     }

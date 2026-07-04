@@ -30,10 +30,16 @@ public class TeamService {
 
     public TeamResponseDto getTeamById(Long id) {
         Team team = teamRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Team not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Team not found with id: " + id));
 
         return teamMapper.toDto(team);
+    }
+
+    public List<TeamResponseDto> getTeamsByCountry(String country) {
+        return teamRepository.findByCountry(country)
+                .stream()
+                .map(teamMapper::toDto)
+                .toList();
     }
 
     public TeamResponseDto createTeam(TeamRequestDto dto) {
@@ -45,8 +51,7 @@ public class TeamService {
 
     public TeamResponseDto updateTeam(Long id, TeamRequestDto dto) {
         Team existingTeam = teamRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Team not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Team not found with id: " + id));
 
         existingTeam.setName(dto.getName());
         existingTeam.setCountry(dto.getCountry());
@@ -58,8 +63,7 @@ public class TeamService {
 
     public void deleteTeam(Long id) {
         Team existingTeam = teamRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResourceNotFoundException("Team not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Team not found with id: " + id));
 
         teamRepository.delete(existingTeam);
     }
