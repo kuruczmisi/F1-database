@@ -23,6 +23,11 @@ public class DriverController {
         return driverService.getAllDrivers();
     }
 
+    @GetMapping("/nationality/{nationality}")
+    public List<DriverResponseDto> getDriversByNationality(@PathVariable String nationality) {
+        return driverService.getDriversByNationality(nationality);
+    }
+
     @GetMapping("/{id}")
     public DriverResponseDto getDriverById(@PathVariable Long id) {
         return driverService.getDriverById(id);

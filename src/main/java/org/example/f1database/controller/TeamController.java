@@ -23,6 +23,11 @@ public class TeamController {
         return teamService.getAllTeams();
     }
 
+    @GetMapping("/country/{country}")
+    public List<TeamResponseDto> getTeamsByCountry(@PathVariable String country) {
+        return teamService.getTeamsByCountry(country);
+    }
+
     @GetMapping("/{id}")
     public TeamResponseDto getTeamById(@PathVariable Long id) {
         return teamService.getTeamById(id);

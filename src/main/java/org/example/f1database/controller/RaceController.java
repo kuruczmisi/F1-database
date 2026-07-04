@@ -23,6 +23,11 @@ public class RaceController {
         return raceService.getAllRaces();
     }
 
+    @GetMapping("/year/{year}")
+    public List<RaceResponseDto> getRacesByYear(@PathVariable int year) {
+        return raceService.getRacesByYear(year);
+    }
+
     @GetMapping("/{id}")
     public RaceResponseDto getRaceById(@PathVariable Long id) {
         return raceService.getRaceById(id);
