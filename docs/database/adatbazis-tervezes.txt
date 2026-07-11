@@ -1,0 +1,15 @@
+Adatbázis tervezés
+A projekt elkészítése előtt megterveztem az adatbázis felépítését és azt, hogy az egyes adatok hogyan kapcsolódnak egymáshoz.
+A cél egy egyszerű Formula–1 statisztikai adatbázis létrehozása volt, amelyben a csapatok, a versenyzők, a futamok és az eredmények kezelhetők.
+
+Az adatbázis négy fő entitásból áll:
+Team,
+Driver,
+Race,
+Result.
+A Team és a Driver között One-to-Many kapcsolat van, mivel egy csapathoz több versenyző is tartozhat.
+A Driver és a Race között Many-to-Many kapcsolat található, amelyet a driver_races kapcsolótábla valósít meg.
+Az eredményeket a Result tábla tárolja, amely összekapcsolja a versenyzőt és a futamot, valamint eltárolja a megszerzett pontokat és a célba érés helyezését.
+A táblák idegen kulcsok segítségével kapcsolódnak egymáshoz, így biztosított az adatok közötti kapcsolat és az adatintegritás.
+A tervezés során arra törekedtem, hogy az adatbázis egyszerű, jól átlátható és könnyen bővíthető legyen.
+Ennek köszönhetően a CRUD műveletek és a különböző keresések is könnyen megvalósíthatók.
