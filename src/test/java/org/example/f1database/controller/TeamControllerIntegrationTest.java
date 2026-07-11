@@ -1,6 +1,9 @@
 package org.example.f1database.controller;
 
 import org.example.f1database.entity.Team;
+import org.example.f1database.repository.DriverRepository;
+import org.example.f1database.repository.RaceRepository;
+import org.example.f1database.repository.ResultRepository;
 import org.example.f1database.repository.TeamRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,12 +16,22 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 class TeamControllerIntegrationTest {
+
+    @Autowired
+    private ResultRepository resultRepository;
+
+    @Autowired
+    private RaceRepository raceRepository;
+
+    @Autowired
+    private DriverRepository driverRepository;
 
     @Autowired
     private MockMvc mockMvc;
@@ -28,6 +41,9 @@ class TeamControllerIntegrationTest {
 
     @BeforeEach
     void setUp() {
+        resultRepository.deleteAll();
+        raceRepository.deleteAll();
+        driverRepository.deleteAll();
         teamRepository.deleteAll();
     }
 
