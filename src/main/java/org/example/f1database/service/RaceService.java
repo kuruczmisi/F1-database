@@ -9,11 +9,13 @@ import org.example.f1database.mapper.RaceMapper;
 import org.example.f1database.repository.DriverRepository;
 import org.example.f1database.repository.RaceRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class RaceService {
 
     private final RaceRepository raceRepository;
@@ -28,6 +30,7 @@ public class RaceService {
         this.raceMapper = raceMapper;
     }
 
+    @Transactional(readOnly = true)
     public List<RaceResponseDto> getAllRaces() {
         return raceRepository.findAll()
                 .stream()
@@ -35,13 +38,19 @@ public class RaceService {
                 .toList();
     }
 
+    @Transactional(readOnly = true)
     public RaceResponseDto getRaceById(Long id) {
         Race race = raceRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Race not found with id: " + id));
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "Race not found with id: " + id
+                        )
+                );
 
         return raceMapper.toDto(race);
     }
 
+    @Transactional(readOnly = true)
     public List<RaceResponseDto> getRacesByYear(int year) {
         return raceRepository.findByYear(year)
                 .stream()
@@ -60,14 +69,20 @@ public class RaceService {
 
     public RaceResponseDto updateRace(Long id, RaceRequestDto dto) {
         Race existingRace = raceRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Race not found with id: " + id));
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "Race not found with id: " + id
+                        )
+                );
 
         List<Driver> drivers = getDriversFromIds(dto.getDriverIds());
 
         existingRace.setName(dto.getName());
         existingRace.setLocation(dto.getLocation());
         existingRace.setYear(dto.getYear());
-        existingRace.setDrivers(drivers);
+
+        existingRace.getDrivers().clear();
+        existingRace.getDrivers().addAll(drivers);
 
         Race updatedRace = raceRepository.save(existingRace);
 
@@ -76,8 +91,13 @@ public class RaceService {
 
     public void deleteRace(Long id) {
         Race existingRace = raceRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Race not found with id: " + id));
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "Race not found with id: " + id
+                        )
+                );
 
+        existingRace.getDrivers().clear();
         raceRepository.delete(existingRace);
     }
 
@@ -86,9 +106,16 @@ public class RaceService {
             return new ArrayList<>();
         }
 
-        return driverIds.stream()
+        List<Driver> drivers = driverIds.stream()
                 .map(driverId -> driverRepository.findById(driverId)
-                        .orElseThrow(() -> new ResourceNotFoundException("Driver not found with id: " + driverId)))
+                        .orElseThrow(() ->
+                                new ResourceNotFoundException(
+                                        "Driver not found with id: " + driverId
+                                )
+                        )
+                )
                 .toList();
+
+        return new ArrayList<>(drivers);
     }
 }

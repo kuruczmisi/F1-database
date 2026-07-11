@@ -1,0 +1,1643 @@
+{
+  "info": {
+    "_postman_id": "25bcd904-4fb5-4c8f-b202-c367d72a7769",
+    "name": "F1-database",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45046591"
+  },
+  "item": [
+    {
+      "name": "Create Team",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": \"Fred Vasseur\",\n    \"foundedYear\": 1929\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/teams",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "teams"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Team",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": \"Fred Vasseur\",\n    \"foundedYear\": 1929\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/teams",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "teams"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "93"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:18:23 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"name\": \"Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": \"Fred Vasseur\",\n    \"foundedYear\": 1929\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All Teams",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Get All Teams",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:8080/teams",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "teams"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "95"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:18:51 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Ferrari\",\n        \"country\": \"Italy\",\n        \"teamPrincipal\": \"Fred Vasseur\",\n        \"foundedYear\": 1929\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get Team By Id",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Get Team By Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": \"Fred Vasseur\",\n    \"foundedYear\": 1929\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/teams/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "teams",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "89"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 09 Jul 2026 18:36:33 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"name\": \"Scuderia Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": null,\n    \"foundedYear\": 0\n}"
+        }
+      ]
+    },
+    {
+      "name": "Search Teams By Country",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Search Teams By Country",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/teams/country/Italy",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "teams",
+                "country",
+                "Italy"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "95"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:22:13 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Ferrari\",\n        \"country\": \"Italy\",\n        \"teamPrincipal\": \"Fred Vasseur\",\n        \"foundedYear\": 1929\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Update Team",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Scuderia Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": \"Fred Vasseur\",\n    \"foundedYear\": 1929\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/teams/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "teams",
+            "1"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Team",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Scuderia Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": \"Fred Vasseur\",\n    \"foundedYear\": 1929\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/teams/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "teams",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "102"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:22:38 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"name\": \"Scuderia Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": \"Fred Vasseur\",\n    \"foundedYear\": 1929\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Team",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "HEAD",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Scuderia Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": \"Fred Vasseur\",\n    \"foundedYear\": 1929\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/teams/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "teams",
+            "1"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Team",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Scuderia Ferrari\",\n    \"country\": \"Italy\",\n    \"teamPrincipal\": \"Fred Vasseur\",\n    \"foundedYear\": 1929\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/teams/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "teams",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "40"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:23:04 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Team deleted successfully.\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Driver",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Lewis Hamilton\",\n    \"nationality\": \"British\",\n    \"number\": 44,\n    \"teamId\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/drivers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "drivers"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Driver",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Lewis Hamilton\",\n    \"nationality\": \"British\",\n    \"number\": 44,\n    \"teamId\":1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/drivers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "drivers"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "109"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:36:17 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 2,\n    \"name\": \"Lewis Hamilton\",\n    \"nationality\": \"British\",\n    \"number\": 44,\n    \"teamId\": 1,\n    \"teamName\": \"Scuderia Ferrari\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All Drivers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/drivers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "drivers"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get All Drivers",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/drivers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "drivers"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "111"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:41:25 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Lewis Hamilton\",\n        \"nationality\": \"British\",\n        \"number\": 44,\n        \"teamId\": 1,\n        \"teamName\": \"Scuderia Ferrari\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get Driver By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/drivers/5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "drivers",
+            "5"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Driver By Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/drivers/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "drivers",
+                "2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "109"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:41:48 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 2,\n    \"name\": \"Lewis Hamilton\",\n    \"nationality\": \"British\",\n    \"number\": 44,\n    \"teamId\": 1,\n    \"teamName\": \"Scuderia Ferrari\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Search Driver By Nationality",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/drivers/search?nationality=British",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "drivers",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "nationality",
+              "value": "British"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Search Driver By Nationality",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/drivers/nationality/British",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "drivers",
+                "nationality",
+                "British"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "111"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:42:05 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Lewis Hamilton\",\n        \"nationality\": \"British\",\n        \"number\": 44,\n        \"teamId\": 1,\n        \"teamName\": \"Scuderia Ferrari\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Update Driver",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Lewis Hamilton\",\n    \"nationality\": \"British\",\n    \"number\": 44,\n    \"teamId\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/drivers/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "drivers",
+            "4"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Driver",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Lewis Hamilton\",\n    \"nationality\": \"British\",\n    \"number\": 44,\n    \"teamId\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/drivers/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "drivers",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "109"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:35:19 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"name\": \"Lewis Hamilton\",\n    \"nationality\": \"British\",\n    \"number\": 44,\n    \"teamId\": 1,\n    \"teamName\": \"Scuderia Ferrari\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Driver",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Lewis Hamilton\",\n    \"nationality\": \"British\",\n    \"number\": 44,\n    \"teamId\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/drivers/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "drivers",
+            "3"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Driver",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Lewis Hamilton\",\n    \"nationality\": \"British\",\n    \"number\": 44,\n    \"teamId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/drivers/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "drivers",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "42"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:35:56 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Driver deleted successfully.\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Race",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Hungarian Grand Prix\",\n    \"location\": \"Hungary\",\n    \"year\": 2025,\n    \"driverIds\": [\n        5\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/races",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "races"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Race",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Hungarian Grand Prix\",\n    \"location\": \"Hungary\",\n    \"year\": 2025,\n    \"driverIds\": [\n        2\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/races",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "races"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "120"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:36:34 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"name\": \"Hungarian Grand Prix\",\n    \"location\": \"Hungary\",\n    \"year\": 2025,\n    \"driverIds\": [\n        2\n    ],\n    \"driverNames\": [\n        \"Lewis Hamilton\"\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All Races",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Get All Races",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/races",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "races"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "122"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:40:39 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Hungarian Grand Prix\",\n        \"location\": \"Hungary\",\n        \"year\": 2025,\n        \"driverIds\": [\n            2\n        ],\n        \"driverNames\": [\n            \"Lewis Hamilton\"\n        ]\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get Race By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/races/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "races",
+            "2"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Race By Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/races/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "races",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "120"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:42:53 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"name\": \"Hungarian Grand Prix\",\n    \"location\": \"Hungary\",\n    \"year\": 2025,\n    \"driverIds\": [\n        2\n    ],\n    \"driverNames\": [\n        \"Lewis Hamilton\"\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Race",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Hungarian Grand Prix\",\n    \"location\": \"Hungary\",\n    \"year\": 2025,\n    \"driverIds\": [\n        5\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/races/5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "races",
+            "5"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Race",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Hungarian Grand Prix\",\n    \"location\": \"Hungary\",\n    \"year\": 2025,\n    \"driverIds\": [\n        2\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/races/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "races",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "120"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:51:25 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"name\": \"Hungarian Grand Prix\",\n    \"location\": \"Hungary\",\n    \"year\": 2025,\n    \"driverIds\": [\n        2\n    ],\n    \"driverNames\": [\n        \"Lewis Hamilton\"\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Race",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:8080/races/5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "races",
+            "5"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Race",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:8080/races/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "races",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "40"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:51:47 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Race deleted successfully.\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Result",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"position\": 1,\n    \"points\": 25,\n    \"driverId\": 5,\n    \"raceId\": 3\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/results",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "results"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Result",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"position\": 1,\n    \"points\": 25,\n    \"driverId\": 2,\n    \"raceId\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/results",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "results"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "121"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:52:30 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"position\": 1,\n    \"points\": 25,\n    \"driverId\": 2,\n    \"driverName\": \"Lewis Hamilton\",\n    \"raceId\": 2,\n    \"raceName\": \"Hungarian Grand Prix\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All Results",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"position\": 1,\n    \"points\": 25,\n    \"driverId\": 5,\n    \"raceId\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/results",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "results"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get All Results",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"position\": 1,\n    \"points\": 25,\n    \"driverId\": 5,\n    \"raceId\": 3\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/results",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "results"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "123"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:52:50 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"position\": 1,\n        \"points\": 25,\n        \"driverId\": 2,\n        \"driverName\": \"Lewis Hamilton\",\n        \"raceId\": 2,\n        \"raceName\": \"Hungarian Grand Prix\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get Result By Id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"position\": 1,\n    \"points\": 25,\n    \"driverId\": 5,\n    \"raceId\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/results/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "results",
+            "3"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Result By Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"position\": 1,\n    \"points\": 25,\n    \"driverId\": 5,\n    \"raceId\": 3\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/results/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "results",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "121"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:53:13 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"position\": 1,\n    \"points\": 25,\n    \"driverId\": 2,\n    \"driverName\": \"Lewis Hamilton\",\n    \"raceId\": 2,\n    \"raceName\": \"Hungarian Grand Prix\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Result",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"position\": 2,\n    \"points\": 18,\n    \"driverId\": 5,\n    \"raceId\": 3\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/results/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "results",
+            "3"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Result",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"position\": 2,\n    \"points\": 18,\n    \"driverId\": 2,\n    \"raceId\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/results/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "results",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "121"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:53:40 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 1,\n    \"position\": 2,\n    \"points\": 18,\n    \"driverId\": 2,\n    \"driverName\": \"Lewis Hamilton\",\n    \"raceId\": 2,\n    \"raceName\": \"Hungarian Grand Prix\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Result",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"position\": 2,\n    \"points\": 18,\n    \"driverId\": 5,\n    \"raceId\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/results/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "results",
+            "3"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Result",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"position\": 2,\n    \"points\": 18,\n    \"driverId\": 5,\n    \"raceId\": 3\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/results/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "results",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Content-Length",
+              "value": "42"
+            },
+            {
+              "key": "Date",
+              "value": "Sat, 11 Jul 2026 14:54:01 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Result deleted successfully.\"\n}"
+        }
+      ]
+    }
+  ]
+}
